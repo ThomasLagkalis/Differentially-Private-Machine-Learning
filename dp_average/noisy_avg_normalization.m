@@ -1,0 +1,9 @@
+function [true_avg,avg] = noisy_avg_normalization(epsilon,a_min, a_max, D)
+%NOISY_AVG_NORMALIZATION Summary of this function goes here
+%   Detailed explanation goes here
+S = sum(D) - length(D)*(a_min+a_max)/2 + ((a_max-a_min)/epsilon)*randl;
+C = length(D) + (2/epsilon)*randl;
+true_avg = sum(D)/length(D);
+avg = ((a_min + a_max)/2)*(length(D)<=1) + (S/C + (a_min + a_max)/2)*(length(D)>1);
+end
+

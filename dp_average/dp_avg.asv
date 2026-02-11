@@ -1,0 +1,135 @@
+clc; clear all;
+%% Parameters
+num_of_exp = 1000;
+%epsilon = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1];
+epsilon = [1e-2, 5*1e-2, 1e-1];
+n = 1000; % Data set D size.
+sz = [1, n];
+a_min = -100;
+a_max = 100;
+truncated_normal = truncate(makedist('Normal',0,1),a_min,a_max); % https://stackoverflow.com/questions/45191417/choosing-from-a-range-of-numbers-with-normal-distribution#45193928
+truncated_exp = truncate(makedist('Exponential'),a_min,a_max);
+D = random(truncated_exp, 1, n);
+%D = random(truncated_normal, 1, n);
+%D = random('unif', a_min, a_max, sz);
+
+
+%% Noisy Average: Simple Laplace (Alg. 2.1)
+avg = zeros(length(epsilon), num_of_exp);
+true_avg = zeros(length(epsilon), num_of_exp);
+for i=1:length(epsilon)
+    for j=1:num_of_exp
+        [true_avg(i,j), avg(i,j)] = simple_noisy_avg(epsilon(i), a_min, a_max, D);
+    end
+end
+error = abs(avg- true_avg);
+
+window = 1000;
+
+figure;  
+subplot(1,3,1);hold on;
+
+for i = 1:length(epsilon)
+    % Compute moving average across experiments (row-wise)
+    mov_avg_err = movmean(error(i,:), window);
+    
+    % Plot
+    plot(mov_avg_err,  'LineWidth', 1.5, 'DisplayName', sprintf('\\epsilon = %.0e', epsilon(i)));
+end
+
+xlabel('Experiment Index');
+ylabel('Moving Average of Error');
+title(sprintf('Noisy Average Simple (window = %d)', window));
+legend show;
+grid on;
+set(gca,'FontSize',15,'fontWeight','bold')
+
+
+subplot(1,3,2);hold on;
+% %% NoisyAverage Resampling (Alg. 2.2)
+% epsilon = [0.01, 0,1];
+% 
+% avg = zeros(length(epsilon), num_of_exp);
+% true_avg = zeros(length(epsilon), num_of_exp);
+% for i=1:length(epsilon)
+%     for j=1:num_of_exp
+%         [true_avg(i,j), avg(i,j)] = noisy_avg_resample(epsilon(i), a_min, a_max, D);
+%     end
+% end
+% error = abs(avg- true_avg);
+% 
+% window = 1000;
+% 
+% for i = 1:length(epsilon)
+%     % Compute moving average across experiments (row-wise)
+%     mov_avg_err = movmean(error(i,:), window);
+% 
+%     % Plot
+%     plot(mov_avg_err,  'LineWidth', 1.5, 'DisplayName', sprintf('\\epsilon = %.0e', epsilon(i)));
+% end
+% 
+% xlabel('Experiment Index');
+% ylabel('Moving Average of Error');
+% title(sprintf('Noisy Average with resampling (window = %d)', window));
+% legend show;
+% grid on;
+% set(gca,'FontSize',15,'fontWeight','bold')
+
+
+%% NoisyAverage Clamping-Down (Alg. 2.3)
+avg = zeros(length(epsilon), num_of_exp);
+true_avg = zeros(length(epsilon), num_of_exp);
+for i=1:length(epsilon)
+    for j=1:num_of_exp
+        [true_avg(i,j), avg(i,j)] = noisy_avg_clampingDown(epsilon(i), a_min, a_max, D);
+    end
+end
+error = abs(avg- true_avg);
+
+window = 1000;
+
+for i = 1:length(epsilon)
+    % Compute moving average across experiments (row-wise)
+    mov_avg_err = movmean(error(i,:), window);
+    
+    % Plot
+    plot(mov_avg_err,  'LineWidth', 1.5, 'DisplayName', sprintf('\\epsilon = %.0e', epsilon(i)));
+end
+
+xlabel('Experiment Index');
+ylabel('Moving Average of Error');
+title(sprintf('Noisy Average with clamping down (window = %d)', window));
+legend show;
+grid on;
+set(gca,'FontSize',15,'fontWeight','bold')
+
+
+
+%% Noisy Average with Normalization (Alg. 2.4)
+subplot(1,3,3); hold on;
+avg = zeros(length(epsilon), num_of_exp);
+true_avg = zeros(length(epsilon), num_of_exp);
+for i=1:length(epsilon)
+    for j=1:num_of_exp
+        [true_avg(i,j), avg(i,j)] = noisy_avg_normalization(epsilon(i), a_min, a_max, D);
+    end
+end
+error = abs(avg- true_avg);
+
+window = 1000;
+
+for i = 1:length(epsilon)
+    % Compute moving average across experiments (row-wise)
+    mov_avg_err = movmean(error(i,:), window);
+    
+    % Plot
+    plot(mov_avg_err,  'LineWidth', 1.5, 'DisplayName', sprintf('\\epsilon = %.0e', epsilon(i)));
+end
+
+xlabel('Experiment Index');
+ylabel('Moving Average of Error');
+title(sprintf('Noisy Average with Normalization (window = %d)', window));
+legend show;
+grid on;
+
+set(gca,'FontSize',15,'fontWeight','bold')

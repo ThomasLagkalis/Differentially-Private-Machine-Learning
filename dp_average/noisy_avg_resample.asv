@@ -1,0 +1,18 @@
+function [true_avg, avg] = noisy_avg_resample(epsilon,a_min, a_max, D)
+%NOISY_AVG_RESAMPLE Summary of this function goes here
+%   Detailed explanation goes here
+S = sum(D);
+C = length(D);
+true_avg = S/C
+
+if C ~= 0
+    A = S + + ((2*(a_max-a_min)/epsilon)*randl)/C;
+    while A < a_min || A > a_max
+        A = S + + ((2*(a_max-a_min)/epsilon)*randl)/C;
+    end
+    avg = A;
+else
+    avg = random('unif', a_min, a_max);
+end
+end
+
