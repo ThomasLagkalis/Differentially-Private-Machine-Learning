@@ -1,6 +1,6 @@
 # Differentially Private Machine Learning
 
-This repository contains all the code used in my thesis titled **"Privacy Preservation in Federated Learning"**.
+This repository contains all the code used in my [thesis](./Thesis_report.pdf) titled **"Privacy Preservation in Federated Learning"**.
 
 ## Table of Contents
 
