@@ -3,7 +3,7 @@ import os
 import cv2
 import numpy as np
 
-dataset_path = "data/"
+dataset_path = "data/orl"
 
 def main():
     for person_id in range(40):
