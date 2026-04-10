@@ -4,10 +4,10 @@ This repository contains all the code used in my [thesis](./Thesis_report.pdf) t
 
 ## Thesis details
 
-**Author:** Thomas Lagkalis
-**Committee:** Professor A.Liavas (Supervisor), Professor G.Karystinos, Professor T.Spyropoylos
-**Presentation Date:** 30/04/2026
-**University:** Technical University of Crete
+**Author:** Thomas Lagkalis  
+**Committee:** Professor A.Liavas (Supervisor), Professor G.Karystinos, Professor T.Spyropoylos  
+**Presentation Date:** 30/04/2026  
+**University:** Technical University of Crete  
 
 ## Abstract
 
