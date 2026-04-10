@@ -35,3 +35,5 @@ This thesis studies privacy risks in machine learning and federated learning, fo
 - Reconstruction of a CIFAR-10 sample during the first training epoch of a simple CNN using the DLG attack.
 
 ![CIFAR10 reconstruction](./assets/grid_cosinesimilarity_None.png)
+
+<img src="./assets/grid_cosinesimilarity_None.png" width="400">
