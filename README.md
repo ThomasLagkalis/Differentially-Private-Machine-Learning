@@ -36,4 +36,4 @@ This thesis studies privacy risks in machine learning and federated learning, fo
 
 ![CIFAR10 reconstruction](./assets/grid_cosinesimilarity_None.png)
 
-<img src="./assets/grid_cosinesimilarity_None.png" width="350"style="display: block; margin: 0 auto;" >
+<img src="./assets/grid_cosinesimilarity_None.png" width="350" style="display: block; margin: 0 auto;" >
