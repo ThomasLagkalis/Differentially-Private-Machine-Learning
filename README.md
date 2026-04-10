@@ -26,14 +26,18 @@ This thesis studies privacy risks in machine learning and federated learning, fo
 
 - Reconstruction of a face image from the ORL dataset in a softmax regression model using a Model Inversion Attack (MIA).
 
-![ORL face reconstruction](./assets/reconstruction.png)
+<p align="center">
+  <img src="./assets/reconstruction.png" width="350">
+</p>
 
 - Reconstructions of MNIST samples across training epochs of an MLP with one hidden layer using the Deep Leakage from Gradients (DLG) attack with a cosine similarity loss function.
 
-![MNIST reconstrucitons](./assets/combined-image_1nn_noiseless_cos.png)
+<p align="center">
+  <img src="./assets/combined-image_1nn_noiseless_cos.png" width="500">
+</p>
 
 - Reconstruction of a CIFAR-10 sample during the first training epoch of a simple CNN using the DLG attack.
 
-![CIFAR10 reconstruction](./assets/grid_cosinesimilarity_None.png)
-
-<img src="./assets/grid_cosinesimilarity_None.png" width="350" style="display: block; margin: 0 auto;" >
+<p align="center">
+  <img src="./assets/grid_cosinesimilarity_None.png" width="350">
+</p>
