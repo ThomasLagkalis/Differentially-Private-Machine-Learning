@@ -17,6 +17,7 @@ This thesis studies privacy risks in machine learning and federated learning, fo
 
 - [kmeans/](./kmeans/): Experiments on differentially private K-means.
 - [dp_average/](./dp_average/): Experiments on differentially private aggregation functions (average).
+- [fredrikson_mia/](./fredrikson_mia/): Model Inversion Attack introduced by M.Fredrikson.
 - [dp_LR/](./dp_LR/): Differentially private logistic regression.
 - [M_class_LR/](./M_class_LR/): Multiclass logistic regression experiments.
 - [dp_sgd/](./dp_sgd/): Differentially private SGD experiments.
