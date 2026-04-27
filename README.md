@@ -20,6 +20,7 @@ This thesis studies privacy risks in machine learning and federated learning, fo
 - [dp_LR/](./dp_LR/): Differentially private logistic regression.
 - [M_class_LR/](./M_class_LR/): Multiclass logistic regression experiments.
 - [dp_sgd/](./dp_sgd/): Differentially private SGD experiments.
+- [dlg/](./dlg): Deep Leakage from Gradients attacks.
 
 ## Reconstruction Examples
 **Note:** For specific configurations and settings of the following reconstructions check the [report](./Thesis_report.pdf).
