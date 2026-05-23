@@ -1,6 +1,6 @@
 # Differentially Private Machine Learning
 
-This repository contains all the code used in my [thesis](./Thesis_report.pdf) titled **"Privacy Preservation in Federated Learning"**.
+This repository contains all the code used in my [thesis](https://doi.org/10.26233/heallink.tuc.105468) titled **"Privacy Preservation in Federated Learning"**.
 
 ## Thesis details
 
@@ -24,7 +24,7 @@ This thesis studies privacy risks in machine learning and federated learning, fo
 - [dlg/](./dlg): Deep Leakage from Gradients attacks.
 
 ## Reconstruction Examples
-**Note:** For specific configurations and settings of the following reconstructions check the [report](./Thesis_report.pdf).
+**Note:** For specific configurations and settings of the following reconstructions check the [report](https://doi.org/10.26233/heallink.tuc.105468).
 
 - Reconstruction of a face image from the ORL dataset in a softmax regression model using a Model Inversion Attack (MIA).
 
